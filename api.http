@@ -1,17 +1,5 @@
-###
-
-POST http://localhost:3000/
-content-type: application/json
-
-{
-  "email": "test@test.com",
-  "extra": "extra"
-}
-
-
-###
-
 GET http://localhost:3000/
 
 ###
 
+GET http://localhost:3000/1

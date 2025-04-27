@@ -1,10 +1,10 @@
 {
-  "name": "nestjs-starter",
-  "version": "0.0.1",
-  "description": "",
-  "author": "",
+  "name": "url-shortener",
+  "version": "0.1.0",
+  "description": "URL Shortener",
+  "author": "Abei",
   "private": true,
-  "license": "UNLICENSED",
+  "license": "MIT",
   "scripts": {
     "build": "nest build",
     "format": "prettier --write \"src/**/*.ts\" \"test/**/*.ts\"",

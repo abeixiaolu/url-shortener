@@ -1,8 +1,8 @@
 # - 用于表示数组或列表项
 services:
-  nestjs_starter_postgres:
+  url_shortener_postgres:
     image: postgres:alpine
-    container_name: nestjs_starter_postgres
+    container_name: url_shortener_postgres
     restart: always
     env_file:
       - .env
@@ -12,20 +12,20 @@ services:
     ports:
       - '5433:5432'
     volumes:
-      - nestjs_starter_postgres_data:/var/lib/postgresql/data
+      - url_shortener_postgres_data:/var/lib/postgresql/data
 
-  nestjs_starter_redis:
+  url_shortener_redis:
     image: redis:alpine
-    container_name: nestjs_starter_redis
+    container_name: url_shortener_redis
     ports:
       - '6400:6379'
     volumes:
-      - nestjs_starter_redis_data:/data
+      - url_shortener_redis_data:/data
 
 networks:
   default:
     name: nestjs_starter
 
 volumes:
-  nestjs_starter_postgres_data:
-  nestjs_starter_redis_data:
+  url_shortener_postgres_data:
+  url_shortener_redis_data:
