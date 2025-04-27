@@ -7,5 +7,6 @@ import { UidModule } from 'src/services/uid/uid.module';
   controllers: [UrlController],
   providers: [UrlService],
   imports: [UidModule],
+  exports: [UrlService],
 })
 export class UrlModule {}

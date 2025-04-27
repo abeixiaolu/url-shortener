@@ -30,6 +30,16 @@ export class UrlService implements OnModuleInit {
     return url;
   }
 
+  async findUrlByUid(uid: string) {
+    const url = await this.databaseService.url.findFirstOrThrow({
+      where: {
+        url: `${this.host}/${uid}`,
+      },
+    });
+
+    return url;
+  }
+
   findAll() {
     return `This action returns all url`;
   }
