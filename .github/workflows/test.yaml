@@ -1,0 +1,34 @@
+name: Test
+
+on:
+  push:
+    branches:
+      - main
+    pull_request:
+      branches: ['*']
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/build
+      - name: Generate Prisma Client
+        run: npx prisma generate
+      - name: Run unit tests
+        run: pnpm test
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres
+  e2e-tests:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: ./.github/actions/build
+      - name: Generate Prisma Client
+        run: npx prisma generate
+      - name: Run e2e tests
+        run: pnpm test:e2e
+        env:
+          POSTGRES_USER: postgres
+          POSTGRES_PASSWORD: postgres

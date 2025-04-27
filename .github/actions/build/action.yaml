@@ -1,0 +1,39 @@
+# action 的名称，用于在工作流中引用
+name: Build
+
+# action 的描述，说明这个 action 的功能
+description: Sets up repository
+
+# 定义 action 的运行方式
+runs:
+  # 声明这是一个组合动作，必填字段
+  # 可选值为 'composite'|'docker'|'javascript'
+  using: 'composite'
+
+  # 定义要执行的步骤序列
+  steps:
+    # 步骤1：检出代码到工作目录
+    - name: Checkout
+      # 使用官方的检出代码 action
+      uses: actions/checkout@v4
+
+    # 步骤2：设置 Node.js 环境
+    - name: Install NodeJS
+      # 使用官方的 Node.js 设置 action
+      uses: actions/setup-node@v4
+
+    # 步骤3：设置 pnpm 包管理器
+    - name: Set up pnpm
+      # 使用 pnpm 官方的设置 action
+      uses: pnpm/action-setup@v4
+      # 传递给 action 的参数
+      with:
+        # 指定 pnpm 版本为最新版
+        version: latest
+
+    # 步骤4：安装项目依赖
+    - name: Install dependencies
+      # 指定使用 bash shell 执行命令
+      shell: bash
+      # 要执行的命令
+      run: pnpm install

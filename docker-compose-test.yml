@@ -1,0 +1,31 @@
+# - 用于表示数组或列表项
+services:
+  nestjs_starter_test_postgres:
+    image: postgres:alpine
+    container_name: nestjs_starter_test_postgres
+    restart: 'no'
+    env_file:
+      - .env.test
+    environment:
+      - POSTGRES_USER=${POSTGRES_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+    ports:
+      - '5432:5432'
+    volumes:
+      - nestjs_starter_test_postgres_data:/var/lib/postgresql/data
+
+  nestjs_starter_test_redis:
+    image: redis:alpine
+    container_name: nestjs_starter_test_redis
+    ports:
+      - '6379:6379'
+    volumes:
+      - nestjs_starter_test_redis_data:/data
+
+networks:
+  default:
+    name: nestjs_starter
+
+volumes:
+  nestjs_starter_test_postgres_data:
+  nestjs_starter_test_redis_data:
