@@ -1,6 +1,6 @@
 GET http://localhost:3000/
 
-###
+### 获取所有短链接
 
 GET http://localhost:3000/url
 
@@ -14,3 +14,17 @@ Content-Type: application/json
   "title": "Abei",
   "description": "Abei is my personal website"
 }
+
+
+### 访问短链
+
+GET http://localhost:3000/888999
+
+
+### 更新短链信息
+
+PATCH http://localhost:3000/888999
+
+### 删除短链
+
+DELETE  http://localhost:3000/888999

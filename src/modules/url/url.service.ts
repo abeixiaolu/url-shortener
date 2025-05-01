@@ -30,11 +30,9 @@ export class UrlService implements OnModuleInit {
     return url;
   }
 
-  async findUrlByUid(uid: string) {
-    const url = await this.databaseService.url.findFirstOrThrow({
-      where: {
-        url: `${this.host}/${uid}`,
-      },
+  async findOne(uid: string) {
+    const url = await this.databaseService.url.findUnique({
+      where: { url: this.concatUrl(uid) },
     });
 
     return url;
@@ -44,15 +42,15 @@ export class UrlService implements OnModuleInit {
     return `This action returns all url`;
   }
 
-  findOne(id: number) {
-    return `This action returns a #${id} url`;
-  }
-
   update(id: number, updateUrlDto: UpdateUrlDto) {
     return `This action updates a #${id} url`;
   }
 
   remove(id: number) {
     return `This action removes a #${id} url`;
+  }
+
+  concatUrl(uid: string) {
+    return `${this.host}/${uid}`;
   }
 }
