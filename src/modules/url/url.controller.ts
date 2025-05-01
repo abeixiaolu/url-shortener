@@ -39,11 +39,11 @@ export class UrlController {
     @Param('uid', UrlExistsPipe) url: Url,
     @Body() updateUrlDto: UpdateUrlDto,
   ) {
-    return this.urlService.update(1, updateUrlDto);
+    return this.urlService.update(url.id, updateUrlDto);
   }
 
   @Delete(':uid')
   remove(@Param('uid', UrlExistsPipe) url: Url) {
-    return this.urlService.remove(1);
+    return this.urlService.remove(url.id);
   }
 }
