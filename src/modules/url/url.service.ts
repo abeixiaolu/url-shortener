@@ -43,16 +43,14 @@ export class UrlService implements OnModuleInit {
   }
 
   async update(id: number, updateUrlDto: UpdateUrlDto) {
-    const updatedUrl = await this.databaseService.url.update({
+    return await this.databaseService.url.update({
       data: updateUrlDto,
       where: { id },
     });
-    return updatedUrl;
   }
 
   async remove(id: number) {
-    const deletedUrl = await this.databaseService.url.delete({ where: { id } });
-    return deletedUrl;
+    return await this.databaseService.url.delete({ where: { id } });
   }
 
   concatUrl(uid: string) {

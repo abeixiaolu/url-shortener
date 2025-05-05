@@ -23,15 +23,15 @@ GET http://localhost:3000/888999
 
 ### 更新短链信息
 
-PATCH http://localhost:3000/5Bbpgv
+PATCH http://localhost:3000/url/5Bbpgv
 Content-Type: application/json
 
 {
   "redirect": "https://abei.me",
   "title": "Abei",
-  "description": "Abei is my personal website"
+  "description": "Abei is my personal website2"
 }
 
 ### 删除短链
 
-DELETE  http://localhost:3000/w70PBI
+DELETE  http://localhost:3000/url/tQ-Gos

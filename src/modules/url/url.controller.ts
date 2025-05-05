@@ -34,7 +34,7 @@ export class UrlController {
     return res.redirect(url.redirect);
   }
 
-  @Patch(':uid')
+  @Patch('url/:uid')
   update(
     @Param('uid', UrlExistsPipe) url: Url,
     @Body() updateUrlDto: UpdateUrlDto,
@@ -42,7 +42,7 @@ export class UrlController {
     return this.urlService.update(url.id, updateUrlDto);
   }
 
-  @Delete(':uid')
+  @Delete('url/:uid')
   remove(@Param('uid', UrlExistsPipe) url: Url) {
     return this.urlService.remove(url.id);
   }
