@@ -3,11 +3,13 @@ GET http://localhost:3000/
 ### 获取所有短链接
 
 GET http://localhost:3000/url
+X-API-KEY: SECRET
 
 ### 创建一个短链接
 
 POST http://localhost:3000/url
 Content-Type: application/json
+X-API-KEY: SECRET
 
 {
   "redirect": "https://abei.me",
@@ -25,13 +27,15 @@ GET http://localhost:3000/888999
 
 PATCH http://localhost:3000/url/5Bbpgv
 Content-Type: application/json
+X-API-KEY: SECRET
 
 {
   "redirect": "https://abei.me",
   "title": "Abei",
-  "description": "Abei is my personal website2"
+  "description": "Abei is my personal website"
 }
 
 ### 删除短链
 
 DELETE  http://localhost:3000/url/tQ-Gos
+X-API-KEY: SECRET
