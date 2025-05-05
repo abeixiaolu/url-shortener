@@ -8,7 +8,7 @@ export class UrlExistsPipe implements PipeTransform {
   async transform(value: string) {
     const url = await this.urlService.findOne(value);
     if (!url) {
-      throw new NotFoundException(`The url is not found`);
+      throw new NotFoundException(`The url with uid ${value} is not found`);
     }
     return url;
   }

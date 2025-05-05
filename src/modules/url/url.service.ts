@@ -1,8 +1,8 @@
 import { Injectable, OnModuleInit } from '@nestjs/common';
 import { CreateUrlDto } from './dto/create-url.dto';
 import { UpdateUrlDto } from './dto/update-url.dto';
-import { UidService } from 'src/services/uid/uid.service';
-import { DatabaseService } from 'src/database/database.service';
+import { UidService } from '../../services/uid/uid.service';
+import { DatabaseService } from '../../database/database.service';
 import { ConfigService } from '@nestjs/config';
 import { GetUrlsDto } from './dto/get-urls.dto';
 import { Prisma } from '@prisma/client';
@@ -17,6 +17,7 @@ export class UrlService implements OnModuleInit {
   ) {}
 
   onModuleInit() {
+    console.log('onModuleInit');
     this.host = this.configService.getOrThrow<string>('host');
   }
 
